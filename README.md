@@ -13,3 +13,5 @@ Usaremos o módulo chamado flask, que é um micro framework em Python para criar
 Depois a classe Flask, usada para criar a aplicação web.
 Depois a função jsonify, usada para transformar dicionários (ou listas, etc.) em respostas JSON válidas.
 E por último o objeto request, que contém dados da requisição HTTP feita pelo cliente. Por exemplo, para acessar dados de um formulário ou de um corpo JSON.
+
+Teste do Source Control
