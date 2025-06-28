@@ -1,7 +1,9 @@
+#Importando o módulo flask, a classe Flask, a função jsonify e o objeto request.
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Lista com dicionários. Cada dicionário representa um álbum que contém informações: 'id', 'banda', 'albun' e 'ano'.
 albuns = [
     {
     'id': 1,
@@ -23,13 +25,13 @@ albuns = [
     },
 ]
 
-# Consultar (todos)
+# Consultar Albuns (todos)
 @app.route('/albuns', methods=['GET'])
 
 def obterAlbuns():
     return jsonify(albuns)
 
-# Consultar (id)
+# Consultar Albun (id)
 @app.route('/albuns/<int:id>',methods=['GET'])
 
 def obterAlbunsId(id):
@@ -37,7 +39,7 @@ def obterAlbunsId(id):
         if albun.get('id') == id:
             return jsonify(albun)
 
-# Editar livro
+# Editar Albun (id)
 @app.route('/albuns/<int:id>',methods=['PUT'])
 
 def editarAlbunId(id):
@@ -47,7 +49,7 @@ def editarAlbunId(id):
             albuns[indice].update(albunAlterado)
             return jsonify(albuns[indice])
 
-
+# Incluir Albun
 @app.route('/albuns', methods=['POST'])
 
 def incluirAlbun():
@@ -55,6 +57,7 @@ def incluirAlbun():
     albuns.append(novoAlbun)
     return jsonify(albuns)
 
+# Deletar Albun (id)
 @app.route('/albuns/<int:id>', methods=['DELETE'])   
 
 def excluirAlbun(id):
